@@ -27,8 +27,7 @@ def math():
         elif Math[1] == "/" and len(Math) == 3:
             print(int(Math[0]) / int(Math[2]))
         elif len(Math) > 3:
-            print("Too Many inputs")
-            Default()
+            print(str(eval(Sum)))
         elif len(Math) < 3:
             print("not enough inputs")
             Default()
