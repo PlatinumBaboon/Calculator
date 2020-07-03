@@ -1,0 +1,17 @@
+def math():
+    Sum = input("input sum( e.g. 4 + 6) :")
+    Math = Sum.split()
+    try:
+        if Math[1] == "+":
+            print(int(Math[0]) + int(Math[2]))
+        elif Math[1] == "-":
+            print(int(Math[0]) - int(Math[2]))
+        elif Math[1] == "*":
+            print(int(Math[0]) * int(Math[2]))
+        elif Math[1] == "/":
+            print(int(Math[0]) / int(Math[2]))
+    except:
+        print("error try again?")
+        math()
+
+math()
