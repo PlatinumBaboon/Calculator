@@ -1,17 +1,38 @@
+def Default():
+    dice = input("error try again?(y/n)")
+    if dice.lower() == "y":
+        math()
+    elif dice.lower() == "n":
+        print("Goodbye")
+    else:
+        Default2()
+def Default2():
+    dice = input("error try again?(y/n)")
+    if dice.lower() == "y":
+        math()
+    elif dice.lower() == "n":
+        print("Goodbye")
+    else:
+        Default()
 def math():
     Sum = input("input sum( e.g. 4 + 6) :")
     Math = Sum.split()
     try:
-        if Math[1] == "+":
+        if Math[1] == "+" and len(Math) == 3:
             print(int(Math[0]) + int(Math[2]))
-        elif Math[1] == "-":
+        elif Math[1] == "-" and len(Math) == 3:
             print(int(Math[0]) - int(Math[2]))
-        elif Math[1] == "*":
+        elif Math[1] == "*" and len(Math) == 3:
             print(int(Math[0]) * int(Math[2]))
-        elif Math[1] == "/":
+        elif Math[1] == "/" and len(Math) == 3:
             print(int(Math[0]) / int(Math[2]))
+        elif len(Math) > 3:
+            print("Too Many inputs")
+            Default()
+        elif len(Math) < 3:
+            print("not enough inputs")
+            Default()
     except:
-        print("error try again?")
-        math()
+        Default()
 
 math()
