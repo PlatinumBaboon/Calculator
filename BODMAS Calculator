@@ -6,6 +6,7 @@ def spacer(str1):
     str5 = str4.replace("^", " ^ ")
     str7 = str5.replace(" . ", ".")
     return str7
+
 def bracket_pair_finder(calculation):
     start_bracket_index_array = []
     end_bracket_index_array = []
@@ -30,231 +31,381 @@ def bracket_pair_finder(calculation):
         return bracket_pairs
 
 def equation(eq):
+    eq = spacer(eq)
     eq = eq.split()
-    for e in eq:
-        if e == '-' and eq[eq.index(e) - 1] == '+':
-            eq.remove(str(eq[eq.index(e) - 1]))
-            print(eq)
-            print('e')
-        elif e == '-' and eq[eq.index(e) + 1] == '+':
-            eq.remove(str(eq[eq.index(e) + 1]))
-            print(eq)
-            print('b')
-        else:
-            continue
-    for e in eq:
-        if e == '-' and eq[eq.index(e) - 1] == '^':
-            firstnum = eq.index(e) - 1
-            secondnum = eq.index(e) + 1
-            thirdnum = eq.index(e) - 2
-            num1 = eq[firstnum]
-            num2 = eq[secondnum]
-            num3 = eq[thirdnum]
-            print(eq.index(e))
-            # print(num2)
-            print(e)
-            # print(num3)
-            sum = [str(num3), str(num1), str(e), str(num2), ]
-            print(sum)
-            just = ' '.join(sum)
-            answer = spacer(str(eval(just)))
-            eq.remove(str(num1))
-            eq.remove(str(num2))
-            eq.remove(str(num3))
-            eq.insert(eq.index(e), answer)
-            eq.remove(str(e))
-            eq = ' '.join(eq)
-            eq = eq.split()
-            print(eq)
-            print('g')
-        else:
-            continue
-    for e in eq:
-        if e == '-' and eq[eq.index(e) - 1] == '/':
-            firstnum = eq.index(e) - 1
-            secondnum = eq.index(e) + 1
-            thirdnum = eq.index(e) - 2
-            num1 = eq[firstnum]
-            num2 = eq[secondnum]
-            num3 = eq[thirdnum]
-            sum = [str(num3), str(num1), str(e), str(num2), ]
-            print(sum)
-            just = ' '.join(sum)
-            answer = spacer(str(eval(just)))
-            eq.remove(str(num1))
-            eq.remove(str(num2))
-            eq.remove(str(num3))
-            eq.insert(eq.index(e), answer)
-            eq.remove(str(e))
-            eq = ' '.join(eq)
-            eq = eq.split()
-            eq = str(''.join(eq))
-            print(eq)
-            print('g')
-        else:
-            continue
-    for e in eq:
-        if e == '-' and eq[eq.index(e) - 1] == '*':
-            firstnum = eq.index(e) - 1
-            secondnum = eq.index(e) + 1
-            thirdnum = eq.index(e) - 2
-            num1 = eq[firstnum]
-            num2 = eq[secondnum]
-            num3 = eq[thirdnum]
-            print(eq.index(e))
-            # print(num2)
-            print(e)
-            # print(num3)
-            sum = [str(num3), str(num1), str(e), str(num2), ]
-            print(sum)
-            just = ' '.join(sum)
-            answer = spacer(str(eval(just)))
-            eq.remove(str(num1))
-            eq.remove(str(num2))
-            eq.remove(str(num3))
-            eq.insert(eq.index(e), answer)
-            eq.remove(str(e))
-            eq = ' '.join(eq)
-            eq = eq.split()
-            print(eq)
-            print('g')
-        else:
-            continue
-    for e in eq:
-        if e == "^":
-            firstnum = eq.index(e) - 1
-            secondnum = eq.index(e) + 1
-            num1 = eq[firstnum]
-            num2 = eq[secondnum]
-            sum = [num1, e, num2]
-            just = ' '.join(sum)
-            answer = str(pow(float(num1), float(num2)))
-            eq.pop(firstnum)
-            secondnum = eq.index(e) + 1
-            eq.pop(secondnum)
-            eq.insert(eq.index(e), answer)
-            eq.remove(e)
-            print(eq)
-            print('a')
-        else:
-            continue
-    for e in eq:
-        if e == "/":
-            firstnum = eq.index(e) - 1
-            secondnum = eq.index(e) + 1
-            num1 = eq[firstnum]
-            num2 = eq[secondnum]
-            sum = [num1, e, num2]
-            just = ' '.join(sum)
-            answer = str(eval(just))
-            eq.pop(firstnum)
-            secondnum = eq.index(e) + 1
-            eq.pop(secondnum)
-            eq.insert(eq.index(e), answer)
-            eq.remove(e)
-            print(eq)
-            print('a')
-        else:
-            continue
-    for e in eq:
-        if e == "*":
-            firstnum = eq.index(e) - 1
-            secondnum = eq.index(e) + 1
-            num1 = eq[firstnum]
-            num2 = eq[secondnum]
-            sum = [num1, e, num2]
-            just = ' '.join(sum)
-            answer = str(eval(just))
-            eq.pop(firstnum)
-            secondnum = eq.index(e) + 1
-            eq.pop(secondnum)
-            eq.insert(eq.index(e), answer)
-            eq.remove(e)
-            print(eq)
-            print('a')
-        else:
-            continue
-    for e in eq:
-        if e == "+":
-            firstnum = eq.index(e) - 1
-            secondnum = eq.index(e) + 1
-            num1 = eq[firstnum]
-            num2 = eq[secondnum]
-            sum = [num1, e, num2]
-            just = ' '.join(sum)
-            answer = str(eval(just))
-            eq.pop(firstnum)
-            secondnum = eq.index(e) + 1
-            eq.pop(secondnum)
-            eq.insert(eq.index(e), answer)
-            eq.remove(e)
-            print(eq)
-            print('a')
-        else:
-            continue
-    for e in eq:
-        try:
-            if e == '-' and eq[eq.index(e) - 2] == '-':
+    print(eq)
+    while len(eq) > 2:
+        for e in eq:
+            if e == '-' and eq[eq.index(e) - 1] == '^':
                 firstnum = eq.index(e) - 1
                 secondnum = eq.index(e) + 1
                 thirdnum = eq.index(e) - 2
                 num1 = eq[firstnum]
                 num2 = eq[secondnum]
                 num3 = eq[thirdnum]
-                sum = [str(num3), str(num1), str(e), str(num2), ]
-                just = ' '.join(sum)
-                answer = spacer(str(eval(just)))
-                eq.remove(str(num1))
-                eq.remove(str(num2))
-                eq.remove(str(num3))
-                eq.insert(eq.index(e), answer)
-                eq.remove(str(e))
+                print(eq.index(e))
+                # print(num2)
+                print(e)
+                # print(num3)
+                # sum = [str(num3), str(num1), str(e), str(num2), ]
+                just = pow(float(num3), float(-(int(num2))))
+                print(just)
+                # just = ' '.join(sum)
+                answer = spacer(str(just))
+                eq.pop(thirdnum)
+                eq.pop(thirdnum)
+                eq.pop(thirdnum)
+                eq.pop(thirdnum)
+                eq.insert(thirdnum, answer)
                 eq = ' '.join(eq)
-                eq = eq.split()
-                print(eq)
-                print('f')
-            if e == '-' and eq[eq.index(e) + 2] == '-':
-                firstnum = eq.index(e) - 1
-                secondnum = eq.index(e) + 1
-                thirdnum = eq.index(e) + 2
-                num1 = eq[firstnum]
-                num2 = eq[secondnum]
-                num3 = eq[thirdnum]
-                sum = [str(num1), str(e), str(num2), str(num3), ]
-                just = ' '.join(sum)
-                answer = spacer(str(eval(just)))
-                eq.remove(str(num1))
-                eq.remove(str(num2))
-                eq.remove(str(num3))
-                eq.insert(eq.index(e), answer)
-                eq.remove(str(e))
-                eq = ' '.join(eq)
+                eq = spacer(eq)
                 eq = eq.split()
                 print(eq)
                 print('g')
-        except:
-            continue
-    for e in eq:
-        try:
-            if e == "-":
+            else:
+                continue
+        for e in eq:
+            if e == "^":
                 firstnum = eq.index(e) - 1
                 secondnum = eq.index(e) + 1
                 num1 = eq[firstnum]
                 num2 = eq[secondnum]
-                sum = [str(num1), str(e), str(num2)]
+                sum = [num1, e, num2]
                 just = ' '.join(sum)
-                answer = spacer(str(eval(just)))
-                eq.remove(str(num1))
-                eq.remove(str(num2))
+                answer = str(pow(float(num1), float(num2)))
+                eq.pop(firstnum)
+                secondnum = eq.index(e) + 1
+                eq.pop(secondnum)
                 eq.insert(eq.index(e), answer)
-                eq.remove(str(e))
-                eq = ' '.join(eq)
-                eq = eq.split()
+                eq.remove(e)
                 print(eq)
-                print('e')
-        except:
-            continue
-    return str(' '.join(eq))
+                print('a')
+            else:
+                continue
+        for e in eq:
+            if e == "/":
+                try:
+                    if eq[eq.index(e) + 1] == '-':
+                        firstnum = eq.index(e) - 1
+                        print(firstnum)
+                        secondnum = eq.index(e) + 1
+                        print(secondnum)
+                        thirdnum = eq.index(e) + 2
+                        print(thirdnum)
+                        num1 = eq[firstnum]
+                        print(num1)
+                        num2 = eq[secondnum]
+                        print(num2)
+                        num3 = eq[thirdnum]
+                        print(num3)
+                        sum = [str(num1), str(e), str(num2), str(num3), ]
+                        print(sum)
+                        just = ' '.join(sum)
+                        answer = spacer(str(eval(just)))
+                        eq.pop(firstnum)
+                        print(eq)
+                        eq.pop(firstnum)
+                        print(eq)
+                        eq.pop(firstnum)
+                        print(eq)
+                        eq.pop(firstnum)
+                        print(eq)
+                        eq.insert(firstnum, answer)
+                        print(eq)
+                        eq = ' '.join(eq)
+                        eq = spacer(eq)
+                        eq = eq.split()
+                        if len(eq) == 2:
+                            return ''.join(eq)
+                        print(eq)
+                        print('g')
+                except:
+                    continue
+            if e == "/":
+                try:
+                    print('here')
+                    print(e)
+                    print(eq)
+                    firstnum = eq.index(e) - 1
+                    secondnum = eq.index(e) + 1
+                    num1 = eq[firstnum]
+                    num2 = eq[secondnum]
+                    sum = [num1, e, num2]
+                    just = ' '.join(sum)
+                    answer = str(eval(just))
+                    print('divide')
+                    eq.pop(firstnum)
+                    secondnum = eq.index(e) + 1
+                    eq.pop(secondnum)
+                    eq.insert(eq.index(e), answer)
+                    eq.remove(e)
+                    print(eq)
+                    print('a')
+                except:
+                    continue
+            else:
+                continue
+        for e in eq:
+            if e == "*":
+                try:
+                    if eq[eq.index(e) + 1] == '-':
+                        firstnum = eq.index(e) - 1
+                        print(firstnum)
+                        secondnum = eq.index(e) + 1
+                        print(secondnum)
+                        thirdnum = eq.index(e) + 2
+                        print(thirdnum)
+                        num1 = eq[firstnum]
+                        print(num1)
+                        num2 = eq[secondnum]
+                        print(num2)
+                        num3 = eq[thirdnum]
+                        print(num3)
+                        sum = [str(num1), str(e), str(num2), str(num3), ]
+                        print(sum)
+                        just = ' '.join(sum)
+                        answer = spacer(str(eval(just)))
+                        eq.pop(firstnum)
+                        print(eq)
+                        eq.pop(firstnum)
+                        print(eq)
+                        eq.pop(firstnum)
+                        print(eq)
+                        eq.pop(firstnum)
+                        print(eq)
+                        eq.insert(firstnum, answer)
+                        print(eq)
+                        eq = ' '.join(eq)
+                        eq = spacer(eq)
+                        eq = eq.split()
+                        print(eq)
+                        print('g')
+                except:
+                    continue
+                try:
+                    print(e)
+                    print(eq)
+                    firstnum = eq.index(e) - 1
+                    secondnum = eq.index(e) + 1
+                    num1 = eq[firstnum]
+                    num2 = eq[secondnum]
+                    sum = [num1, e, num2]
+                    just = ' '.join(sum)
+                    answer = str(eval(just))
+                    eq.pop(firstnum)
+                    secondnum = eq.index(e) + 1
+                    eq.pop(secondnum)
+                    eq.insert(eq.index(e), answer)
+                    eq.remove(e)
+                    print(eq)
+                    print('a')
+                except:
+                    continue
+            else:
+                continue
+        for e in eq:
+            if e == "+":
+                try:
+                    if eq[eq.index(e) - 1] == '-':
+                        print(eq)
+                        eq.remove(str(eq[eq.index(e)]))
+                        eq = ''.join(eq)
+                        eq = spacer(eq)
+                        eq = eq.split()
+                        print(eq)
+                        print('a')
+                    if eq[eq.index(e) + 1] == '-':
+                        print(eq)
+                        eq.remove(str(eq[eq.index(e)]))
+                        eq = ''.join(eq)
+                        eq = spacer(eq)
+                        eq = eq.split()
+                        print(eq)
+                        print(eq)
+                        print('b')
+                    if eq[eq.index(e) - 2] == '-':
+                        firstnum = eq.index(e) - 1
+                        print(firstnum)
+                        print('right')
+                        secondnum = eq.index(e) + 1
+                        print(secondnum)
+                        thirdnum = eq.index(e) - 2
+                        print(thirdnum)
+                        num1 = eq[firstnum]
+                        print(num1)
+                        num2 = eq[secondnum]
+                        print(num2)
+                        num3 = eq[thirdnum]
+                        print(num3)
+                        sum = [str(num3), str(num1), str(e), str(num2), ]
+                        print(sum)
+                        just = ' '.join(sum)
+                        answer = spacer(str(eval(just)))
+                        eq.pop(thirdnum)
+                        print(eq)
+                        eq.pop(thirdnum)
+                        print(eq)
+                        eq.pop(thirdnum)
+                        print(eq)
+                        eq.pop(thirdnum)
+                        print(eq)
+                        eq.insert(firstnum, answer)
+                        print(eq)
+                        eq = ''.join(eq)
+                        eq = spacer(eq)
+                        eq = eq.split()
+                        print(eq)
+                        print('come')
+                        print(eq)
+                        if len(eq) == 2:
+                            print(eq)
+                            print('long')
+                            return ''.join(eq)
+                        print(eq)
+                except:
+                    continue
+                try:
+                    firstnum = eq.index(e) - 1
+                    secondnum = eq.index(e) + 1
+                    num1 = eq[firstnum]
+                    num2 = eq[secondnum]
+                    sum = [num1, e, num2]
+                    just = ' '.join(sum)
+                    answer = str(eval(just))
+                    eq.pop(firstnum)
+                    secondnum = eq.index(e) + 1
+                    eq.pop(secondnum)
+                    eq.insert(eq.index(e), answer)
+                    eq.remove(e)
+                    print(eq)
+                    print('a')
+                except:
+                    continue
+            else:
+                continue
+        for e in eq:
+            try:
+                if e == '-':
+                    try:
+                        if eq[eq.index(e) + 1] == '-':
+                            print(e)
+                            print(eq[eq.index(e) + 1])
+                            print(eq.index(e) + 1)
+                            print(eq[eq.index(e) - 1])
+                            print(eq.index(e) - 1)
+                            print('b')
+                            print(eq)
+                            eq.insert(eq.index(e), '+')
+                            print('insert')
+                            print(eq)
+                            eq.pop(eq.index(e))
+                            print(eq)
+                            eq.pop(eq.index(e))
+                            print(eq)
+                            print(eq)
+                            eq = ''.join(eq)
+                            eq = spacer(eq)
+                            eq = eq.split()
+                            print(eq)
+                            print(eq)
+                            print('b')
+                    except:
+                        continue
+                    if eq[eq.index(e) + 2] == '-':
+                        if eq[eq.index(e) + 3] == '-':
+                            print(e)
+                            print(eq[eq.index(e) + 1])
+                            print(eq.index(e) + 1)
+                            print(eq[eq.index(e) - 1])
+                            print(eq.index(e) - 1)
+                            print('b')
+                            print(eq)
+                            eq.insert((eq.index(e) + 2), '+')
+                            print('insert2')
+                            print(eq)
+                            eq.pop(eq.index(e) + 3)
+                            print(eq)
+                            eq.pop(eq.index(e) + 3)
+                            print(eq)
+                            print(eq)
+                            eq = ''.join(eq)
+                            eq = spacer(eq)
+                            eq = eq.split()
+                            print(eq)
+                            print(eq)
+                            print('b')
+                            if len(eq) == 2:
+                                return ''.join(eq)
+                    if eq[eq.index(e) + 2] == '-':
+                        try:
+                            firstnum = eq.index(e) + 1
+                            secondnum = eq.index(e) + 2
+                            thirdnum = eq.index(e) + 3
+                            num1 = eq[firstnum]
+                            print('here')
+                            num2 = eq[secondnum]
+                            num3 = eq[thirdnum]
+                            sum = [str(e), str(num1), str(num2), str(num3), ]
+                            just = ' '.join(sum)
+                            answer = spacer(str(eval(just)))
+                            eq.remove(str(num1))
+                            print(eq)
+                            eq.remove(str(num2))
+                            print(eq)
+                            eq.remove(str(num3))
+                            print(eq)
+                            eq.insert(eq.index(e), answer)
+                            print(eq)
+                            eq.remove(str(e))
+                            print(eq)
+                            eq = ' '.join(eq)
+                            eq = eq.split()
+                            print(eq)
+                            print('we')
+                            if len(eq) == 2:
+                                return ''.join(eq)
+                        except:
+                            continue
+            except:
+                continue
+                if len(eq) == 2:
+                    return ''.join(eq)
+        for e in eq:
+            try:
+                if e == "-":
+                    try:
+                        firstnum = eq.index(e) - 1
+                        secondnum = eq.index(e) + 1
+                        num1 = eq[firstnum]
+                        num2 = eq[secondnum]
+                        sum = [str(num1), str(e), str(num2)]
+                        just = ' '.join(sum)
+                        answer = spacer(str(eval(just)))
+                        eq.remove(str(num1))
+                        eq.remove(str(num2))
+                        eq.insert(eq.index(e), answer)
+                        eq.remove(str(e))
+                        eq = ' '.join(eq)
+                        eq = eq.split()
+                        print(eq)
+                        print('e')
+                    except:
+                        continue
+                    if len(eq) == 2:
+                        return ''.join(eq)
+            except:
+                continue
+        else:
+            try:
+                if eq[0] == '+':
+                    eq.pop(0)
+            except:
+                continue
+            print(eq)
+            print('final')
+            return str(' '.join(eq))
+
+
 def remove_brackets(puz):
     for e in puz:
         if e == '(':
@@ -282,10 +433,36 @@ def remove_brackets(puz):
             puz = ' '.join(puz)
             print(puz)
     return puz
-# Sum = input("input sum( e.g. 4 + 6) :")
-str1 = "(5 - (4 ^ 2) - 10) * (9 / (10 - 12))"
 
-str5 = spacer(str1)
-print(str5)
-print(list(str5))
-print(equation(remove_brackets(str5)))
+
+def Default():
+    dice = input("error incorrect Format try again?(y/n)")
+    if dice.lower() == "y":
+        math()
+    elif dice.lower() == "n":
+        print("Goodbye")
+    else:
+        Default2()
+
+
+def Default2():
+    dice = input("error incorrect Format try again?(y/n)")
+    if dice.lower() == "y":
+        math()
+    elif dice.lower() == "n":
+        print("Goodbye")
+    else:
+        Default()
+
+
+def math(equat):
+    try:
+        while len(equat.split()) > 2:
+            nobrackets = remove_brackets(equat)
+            equat = equation(nobrackets)
+
+        else:
+            return ''.join(equat)
+    except:
+        Default()
+
