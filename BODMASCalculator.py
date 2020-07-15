@@ -311,7 +311,7 @@ def remove_brackets(puz):
 def Default():
     dice = input("error incorrect Format try again?(y/n)")
     if dice.lower() == "y":
-        math()
+        math(input("input sum( e.g. 4 + 6) :"))
     elif dice.lower() == "n":
         print("Goodbye")
     else:
@@ -321,7 +321,7 @@ def Default():
 def Default2():
     dice = input("error incorrect Format try again?(y/n)")
     if dice.lower() == "y":
-        math()
+        math(input("input sum( e.g. 4 + 6) :"))
     elif dice.lower() == "n":
         print("Goodbye")
     else:
@@ -335,7 +335,20 @@ def math(equat):
             equat = equation(nobrackets)
 
         else:
-            return ''.join(equat)
+            try:
+                for e in equat.split():
+                    if e =='/':
+                        if equat.split().index(e + 1) == '0':
+                            Default()
+                if isinstance(int(''.join(equat)), int) == True:
+                    return ''.join(equat)
+            except:
+                try:
+                    if isinstance(float(''.join(equat)), float) == True:
+                        return ''.join(equat)
+                except:
+                    if isinstance(''.join(equat), int) == False:
+                        Default()
     except:
         Default()
 
