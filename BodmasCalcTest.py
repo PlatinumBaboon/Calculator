@@ -77,6 +77,26 @@ class MyTestCase(unittest.TestCase):
         data = '(5 +- (4 ^-1) - 10) *(9 /(-10 +7))'
         result = math(data)
         self.assertEqual(result, '15.75')
+        
+    def test_letters(self):
+        data = 'huguhu'
+        result = math(data)
+        self.assertEqual(result, None)
+
+    def test_letters_and_numbers(self):
+        data = 'hug785hu'
+        result = math(data)
+        self.assertEqual(result, None)
+
+    def test_letters_and_symbols(self):
+        data = 'hu*g+u-hu'
+        result = math(data)
+        self.assertEqual(result, None)
+
+    def test_divide_by_zero(self):
+        data = '6/0'
+        result = math(data)
+        self.assertEqual(result, None)
 
 
 if __name__ == '__main__':
