@@ -358,7 +358,7 @@ def math(equat):
         return ''
         #Default()
 
-#Can add these back in if not using GUI
+#Can add these back in if not using GUI and remove return '' above Default()
 #Sum = input("input sum( e.g. 4 + 6) :")
 #print(math(spacer(Sum)))
 
