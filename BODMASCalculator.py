@@ -329,17 +329,21 @@ def Default2():
 
 
 def math(equat):
+    equat = spacer(equat)
+    count = 0
     try:
-        while len(equat.split()) > 2:
+        while len(equat.split()) > 2 and count < 10:
             nobrackets = remove_brackets(equat)
             equat = equation(nobrackets)
+            count += 1
 
         else:
             try:
                 for e in equat.split():
                     if e =='/':
                         if equat.split().index(e + 1) == '0':
-                            Default()
+                            return ''
+                            #Default()
                 if isinstance(int(''.join(equat)), int) == True:
                     return ''.join(equat)
             except:
@@ -348,10 +352,13 @@ def math(equat):
                         return ''.join(equat)
                 except:
                     if isinstance(''.join(equat), int) == False:
-                        Default()
+                        return ''
+                        #Default()
     except:
-        Default()
+        return ''
+        #Default()
 
+#Can add these back in if not using GUI
+#Sum = input("input sum( e.g. 4 + 6) :")
+#print(math(spacer(Sum)))
 
-Sum = input("input sum( e.g. 4 + 6) :")
-print(math(spacer(Sum)))
