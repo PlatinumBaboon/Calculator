@@ -1,5 +1,5 @@
 import tkinter as tk
-from bodmas import math
+from BODMASCalculator import math
 
 def spacer2(str1):
     str6 = str1.replace("-", " - ")
