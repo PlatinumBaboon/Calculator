@@ -1,5 +1,5 @@
 import unittest
-from bodmas import math
+from BODMASCalculator import math
 
 
 class MyTestCase(unittest.TestCase):
