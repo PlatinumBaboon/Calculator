@@ -4,4 +4,4 @@ Calculator which follows BODMAS Rules Brackets, of, Division, MUltiplication, Ad
 
 Tests including tests to try and break the calculator when running tests remove hashes in Math Function
 
-Also a graphical user interface for the calculator 
+Also a graphical user interface for the calculator which runs on tkinter  
