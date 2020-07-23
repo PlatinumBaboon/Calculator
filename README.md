@@ -9,5 +9,5 @@ Tests for the calculator include:
     tests to break the calculator
 
 Also a graphical user interface for the calculator which runs on tkinter. 
-Which comes preinstalled with the newest version of python or you can pip install with:pip install python-tk
+Which comes preinstalled with the newest version of python on windows for others Operating systems you can pip install with:pip install python-tk
 
