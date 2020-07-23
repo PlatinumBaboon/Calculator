@@ -1,8 +1,8 @@
 try:
     import tkinter as tk
 except:
-    print('tkinter is preinstalled on the newest version of python')
-    print('Please install newest version of python or pip install tkinter with the terminal command:')
+    print('tkinter is preinstalled on the newest version of python on windows')
+    print('For other Operating Systems without tKinter preinstalled use pip install tkinter with the terminal command:')
     print('pip install python-tk')
 from BODMASCalculator import math
 
