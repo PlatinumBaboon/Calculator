@@ -1,4 +1,9 @@
-import tkinter as tk
+try:
+    import tkinter as tk
+except:
+    print('tkinter is preinstalled on the newest version of python')
+    print('Please install newest version of python or pip install tkinter with the terminal command:')
+    print('pip install python-tk')
 from BODMASCalculator import math
 
 def spacer2(str1):
