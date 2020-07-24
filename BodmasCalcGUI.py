@@ -124,19 +124,23 @@ def equals():
 
 
 def Del():
-    if lbl_value['text'] == 'incorrect format try again':
-        lbl_value['text'] = ''
-    value = lbl_value["text"]
-    lbl_value["text"] = spacer2(lbl_value["text"])
-    text3 = spacer2(lbl_value["text"])
-    text3 = text3.split()
-    for e in text3:
-        if e == '=':
-            lbl_value["text"] = ''
-    text2 = lbl_value["text"].split()
-    text2.pop(-1)
-    text2 = ''.join(text2)
-    lbl_value["text"] = text2
+    try:
+        value = lbl_value["text"]
+        lbl_value["text"] = spacer2(lbl_value["text"])
+        text3 = spacer2(lbl_value["text"])
+        text3 = text3.split()
+        for e in text3:
+            if e == '=':
+                lbl_value["text"] = ''
+        text2 = lbl_value["text"].split()
+        text2.pop(-1)
+        text2 = ''.join(text2)
+        lbl_value["text"] = text2
+    except:
+        if lbl_value['text'] == '':
+            lbl_value['text'] = ''
+        if lbl_value['text'] == 'incorrect format try again':
+            lbl_value['text'] = ''
 
 
 
