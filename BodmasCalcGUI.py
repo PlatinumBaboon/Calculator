@@ -2,8 +2,9 @@ try:
     import tkinter as tk
 except:
     print('tkinter is preinstalled on the newest version of python on windows and Mac')
-    print('For other Operating Systems without tKinter preinstalled use pip install tkinter with the terminal command:')
+    print('For other Operating Systems without tKinter preinstalled use pip install tkinter such as arch linux varients with the terminal command:')
     print('sudo pacman -S tk')
+    print('For other Linux varients please Check tkinter Website')
 from BODMASCalculator import math
 
 def spacer2(str1):
