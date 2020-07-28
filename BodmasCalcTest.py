@@ -81,22 +81,22 @@ class MyTestCase(unittest.TestCase):
     def test_letters(self):
         data = 'huguhu'
         result = math(data)
-        self.assertEqual(result, None)
+        self.assertEqual(result, '')
 
     def test_letters_and_numbers(self):
         data = 'hug785hu'
         result = math(data)
-        self.assertEqual(result, None)
+        self.assertEqual(result, '')
 
     def test_letters_and_symbols(self):
         data = 'hu*g+u-hu'
         result = math(data)
-        self.assertEqual(result, None)
+        self.assertEqual(result, '')
 
     def test_divide_by_zero(self):
         data = '6/0'
         result = math(data)
-        self.assertEqual(result, None)
+        self.assertEqual(result, '')
 
 
 if __name__ == '__main__':
