@@ -343,9 +343,9 @@ def math(equat):
                     if e =='/':
                         if equat.split().index(e + 1) == '0':
                             return ''
-                            #Default()
                 if isinstance(int(''.join(equat)), int) == True:
                     return ''.join(equat)
+
             except:
                 try:
                     if isinstance(float(''.join(equat)), float) == True:
@@ -353,12 +353,16 @@ def math(equat):
                 except:
                     if isinstance(''.join(equat), int) == False:
                         return ''
-                        #Default()
     except:
         return ''
-        #Default()
 
-#Can add these back in if not using GUI and remove return '' above Default()
+def math2(answer):
+    if answer == '':
+        Default()
+    else:
+        return answer
+    
+#Can add these back in if not using GUI
 #Sum = input("input sum( e.g. 4 + 6) :")
-#print(math(spacer(Sum)))
+#print(math2(math(spacer(Sum))))
 
